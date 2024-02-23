@@ -20,23 +20,25 @@ public class Coche {
         );
     }
 
-    public void acelerar(){
-        System.out.println("cuanto quieres acelerar");
+    public void acelerar() {
         Scanner teclado = new Scanner(System.in);
-        int velocidadTeclado;
-        if (cv>100){
-            velocidadTeclado= teclado.nextInt();
-            velocidad += (Math.random() * velocidadTeclado ) +10;
-            km_recorridos= velocidad/2;
-            System.out.println("velocidad del coche: "+velocidad);
-            System.out.println("kilometros recorridos del coche: "+km_recorridos);
-        }else{
-            velocidadTeclado= teclado.nextInt();
+        System.out.println("Cuánto quieres acelerar: ");
+        int velocidadTeclado = teclado.nextInt();
+
+        if (cv > 100) {
+            velocidad += (10 + Math.random() * velocidadTeclado);
+        } else {
             velocidad += Math.random() * velocidadTeclado;
-            km_recorridos= velocidad/2;
-            System.out.println("velocidad del coche: "+velocidad);
-            System.out.println("kilometros recorridos del coche: "+km_recorridos);
+
+            if (velocidad<10) {
+                velocidad=10;
+            }
         }
+
+        km_recorridos = velocidad / 2;
+
+        System.out.println("Velocidad del coche: " + velocidad);
+        System.out.println("Kilómetros recorridos del coche: " + km_recorridos);
     }
 
 
