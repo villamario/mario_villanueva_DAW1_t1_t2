@@ -16,12 +16,14 @@ public class Carrera {
         System.out.println("cuantas vueltas tiene la carrera?");
         int numeroVueltas = teclado.nextInt();
         System.out.println(numeroVueltas);
-
+        int vueltas=1;
             for (int i = 0; i < numeroVueltas; i++) {
+                System.out.println("Vuelta " +vueltas);
                 System.out.println("acelera coche 1 🚗");
                 coche1.acelerar();
                 System.out.println("acelera coche 2 🚙");
                 coche2.acelerar();
+                vueltas++;
                 if (coche1.getKm_recorridos() >= kmTotales || coche2.getKm_recorridos() >= kmTotales) {
                     System.out.println("se acabó la carrera");
                     break;
@@ -31,11 +33,15 @@ public class Carrera {
         if (coche1.getKm_recorridos() <= kmTotales && coche2.getKm_recorridos() <= kmTotales) {
             System.out.println("se acabaron las vueltas, vueltas extra, seguimos 🏁🔁");
 
+            int vueltaExtra = numeroVueltas + 1;
+
             while (coche1.getKm_recorridos() <= kmTotales && coche2.getKm_recorridos() <= kmTotales){
+                System.out.println("Vuelta " + vueltaExtra);
                 System.out.println("acelera coche 1 🚗");
                 coche1.acelerar();
                 System.out.println("acelera coche 2 🚙");
                 coche2.acelerar();
+                vueltaExtra++;
             }
         }
             ganador(coche1,coche2);
